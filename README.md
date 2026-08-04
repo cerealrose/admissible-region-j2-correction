@@ -18,6 +18,7 @@ The paper derives closed-form, first-order J2 perturbation corrections to both b
 │   ├── perigee_boundary.py        # Perigee-constraint numerics (Tables 3-4)
 │   ├── general_omega.py           # General-omega derivation (Sec. 4.5, Fig. 1)
 │   ├── zonal_validation.py        # J2-J6 validation (Table 6)
+│   ├── worked_example.py          # Generate synthetic-attributable boundaries (Sec. 6.1, Fig. 4)
 │   └── figures.py                 # Generate figures (Figs. 2,3,5)
 ├── figures/                       # Output directory for PNG figures
 └── data/                          # Output directory for generated tables
@@ -80,7 +81,14 @@ Generates:
 - `figures/j2_rp_single_orbit.png` (Fig. 3 — short-period oscillation)
 - `figures/margin_sweep_panels.png` (Fig. 5 — 3-panel LEO parameter sweep)
 
-**Note:** Figure 4 (`worked_example_boundaries.png`, the Sec. 6.1 worked-example AR boundary plot) is not currently produced by any script in `src/`. This is a known gap — see the Sec. 6.1 worked example in the paper for the underlying computation.
+### 7. Worked example (Sec. 6.1, Fig. 4)
+```bash
+python src/worked_example.py
+```
+Reproduces the synthetic-attributable boundaries: the full admissible
+region under the energy constraint (left panel) and a zoom on the
+perigee-constraint boundary segment (right panel), uncorrected vs.
+J2-corrected.
 
 ## Key results
 
