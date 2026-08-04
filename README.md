@@ -4,7 +4,7 @@ This repository contains the Python source code and verification scripts accompa
 
 > **Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary for Too-Short-Arc Orbit Determination**  
 > P. A. Nesvinga  
-> *Acta Astronautica* (under review)
+> *The Journal of the Astronautical Sciences* (under review)
 
 The paper derives closed-form, first-order J2 perturbation corrections to both boundary curves (energy and perigee constraints) of the admissible-region method for too-short-arc initial orbit determination. All symbolic identities are verified via SymPy residual checks, and all numerical claims are reproduced by direct RK45 integration of the J2-perturbed equations of motion.
 
