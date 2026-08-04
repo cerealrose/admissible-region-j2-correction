@@ -2,7 +2,7 @@
 
 This repository contains the Python source code and verification scripts accompanying the paper:
 
-> **Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary for Too-Short-Arc Orbit Determination**
+> **Perturbation-Aware Admissible Regions: First-Order J2 Corrections to Too-Short-Arc Boundary Construction**
 > P. A. Nesvinga
 > *The Journal of the Astronautical Sciences* (under review)
 
@@ -99,7 +99,7 @@ If you use this code, please cite the paper:
 ```bibtex
 @article{nesvinga2026j2,
   author  = {Nesvinga, P. A.},
-  title   = {Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary for Too-Short-Arc Orbit Determination},
+  title   = {Perturbation-Aware Admissible Regions: First-Order J2 Corrections to Too-Short-Arc Boundary Construction},
   journal = {The Journal of the Astronautical Sciences},
   year    = {2026},
   note    = {under review}
