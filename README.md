@@ -2,8 +2,8 @@
 
 This repository contains the Python source code and verification scripts accompanying the paper:
 
-> **Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary for Too-Short-Arc Orbit Determination**  
-> P. A. Nesvinga  
+> **Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary for Too-Short-Arc Orbit Determination**
+> P. A. Nesvinga
 > *The Journal of the Astronautical Sciences* (under review)
 
 The paper derives closed-form, first-order J2 perturbation corrections to both boundary curves (energy and perigee constraints) of the admissible-region method for too-short-arc initial orbit determination. All symbolic identities are verified via SymPy residual checks, and all numerical claims are reproduced by direct RK45 integration of the J2-perturbed equations of motion.
@@ -13,12 +13,12 @@ The paper derives closed-form, first-order J2 perturbation corrections to both b
 ```
 .
 ├── src/
-│   ├── symbolic_verification.py   # SymPy checks (Sec. II, III, IV)
-│   ├── energy_boundary.py         # Energy-constraint numerics (Tables I-II)
-│   ├── perigee_boundary.py        # Perigee-constraint numerics (Tables III-IV)
-│   ├── general_omega.py           # General-omega derivation (Sec. IV.E, Fig. 1)
-│   ├── zonal_validation.py        # J2-J6 validation (Table V)
-│   └── figures.py                 # Generate all figures (Figs. 2-4)
+│   ├── symbolic_verification.py   # SymPy checks (Sec. 2, 3, 4)
+│   ├── energy_boundary.py         # Energy-constraint numerics (Tables 1-2)
+│   ├── perigee_boundary.py        # Perigee-constraint numerics (Tables 3-4)
+│   ├── general_omega.py           # General-omega derivation (Sec. 4.5, Fig. 1)
+│   ├── zonal_validation.py        # J2-J6 validation (Table 6)
+│   └── figures.py                 # Generate figures (Figs. 2,3,5)
 ├── figures/                       # Output directory for PNG figures
 └── data/                          # Output directory for generated tables
 ```
@@ -38,57 +38,59 @@ pip install -r requirements.txt
 
 ## Reproducing the results
 
-### 1. Symbolic verification (Sec. II, III, IV)
+### 1. Symbolic verification (Sec. 2, 3, 4)
 ```bash
 python src/symbolic_verification.py
 ```
 Confirms:
-- Kinematic identity (Eq. 4)
-- Energy-boundary Taylor expansion (Eq. 6)
-- General-omega reduction to omega=0 (Eq. 27 -> Eq. 19)
+- Kinematic identity (Eq. 5)
+- Energy-boundary Taylor expansion (Eq. 12)
+- General-omega reduction to omega=0 (Eq. 26 -> Eq. 19)
 
-### 2. Energy constraint (Sec. III.C, Tables I-II)
+### 2. Energy constraint (Sec. 3.3, Tables 1-2)
 ```bash
 python src/energy_boundary.py
 ```
 Reproduces convergence-order and edge-breakdown tables.
 
-### 3. Perigee constraint (Sec. V, Tables III-IV)
+### 3. Perigee constraint (Sec. 5, Tables 3-4)
 ```bash
 python src/perigee_boundary.py
 ```
 Runs RK45 integration and compares analytic peak-to-peak amplitude against numerical measurement for LEO, MEO, and GEO cases.
 
-### 4. General argument of perigee (Sec. IV.E, Fig. 1)
+### 4. General argument of perigee (Sec. 4.5, Fig. 1)
 ```bash
 python src/general_omega.py
 ```
 Generates `figures/margin_vs_omega.png` and reports worst-case margin at key omega values.
 
-### 5. Zonal validation (Sec. V.E, Table V)
+### 5. Zonal validation (Sec. 5.5, Table 6)
 ```bash
 python src/zonal_validation.py
 ```
 Compares J2-only vs J2-J6 zonal integration to confirm residual error is not dominated by neglected harmonics.
 
-### 6. All figures (Figs. 2-4)
+### 6. Figures 2, 3, 5
 ```bash
 python src/figures.py
 ```
 Generates:
-- `figures/j2_secular_analysis.png` (20-period secular check)
-- `figures/j2_rp_single_orbit.png` (short-period oscillation)
-- `figures/margin_sweep_panels.png` (3-panel LEO parameter sweep)
+- `figures/j2_secular_analysis.png` (Fig. 2 — 20-period secular check)
+- `figures/j2_rp_single_orbit.png` (Fig. 3 — short-period oscillation)
+- `figures/margin_sweep_panels.png` (Fig. 5 — 3-panel LEO parameter sweep)
+
+**Note:** Figure 4 (`worked_example_boundaries.png`, the Sec. 6.1 worked-example AR boundary plot) is not currently produced by any script in `src/`. This is a known gap — see the Sec. 6.1 worked example in the paper for the underlying computation.
 
 ## Key results
 
 | Quantity | Value | Location |
 |----------|-------|----------|
-| Energy-constraint correction | First-order accurate, O(J2^2) residual | Sec. III, Eq. 6 |
-| Perigee-constraint validity threshold | e ≳ 10 J2 (R⊕/a)^2 | Sec. V.F, Eq. 26 |
-| LEO safety margin (worst-case) | ~10–12 km | Sec. VI, Table VI |
-| Margin variation with ω | Factor ~1.7 (10.96 km → 6.37 km) | Sec. IV.E, Fig. 1 |
-| Reclassified AR area (worked example) | 0.0029% | Sec. VI.A |
+| Energy-constraint correction | First-order accurate, O(J2^2) residual | Sec. 3, Eq. 12 |
+| Perigee-constraint validity threshold | e ≳ 10 J2 (R⊕/a)^2 | Sec. 5.6, Eq. 31 |
+| LEO safety margin (worst-case) | ~10–12 km | Sec. 6, Table 7 |
+| Margin variation with ω | Factor ~1.7 (10.96 km → 6.37 km) | Sec. 4.5, Fig. 1 |
+| Reclassified AR area (worked example) | 0.0029% | Sec. 6.1 |
 
 ## Citation
 
