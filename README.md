@@ -98,7 +98,7 @@ If you use this code, please cite the paper:
 @article{nesvinga2026j2,
   author  = {Nesvinga, P. A.},
   title   = {Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary for Too-Short-Arc Orbit Determination},
-  journal = {Acta Astronautica},
+  journal = {The Journal of the Astronautical Sciences},
   year    = {2026},
   note    = {under review}
 }
