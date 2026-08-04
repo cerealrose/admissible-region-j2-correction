@@ -17,6 +17,7 @@ The paper derives closed-form, first-order J2 perturbation corrections to both b
 │   ├── energy_boundary.py         # Energy-constraint numerics (Tables 1-2)
 │   ├── perigee_boundary.py        # Perigee-constraint numerics (Tables 3-4)
 │   ├── general_omega.py           # General-omega derivation (Sec. 4.5, Fig. 1)
+│   ├── table7.py                  # Worst-case margin, exact cubic extremization (Sec. 4.4, Table 7)
 │   ├── zonal_validation.py        # J2-J6 validation (Table 6)
 │   ├── worked_example.py          # Generate synthetic-attributable boundaries (Sec. 6.1, Fig. 4)
 │   └── figures.py                 # Generate figures (Figs. 2,3,5)
@@ -66,13 +67,19 @@ python src/general_omega.py
 ```
 Generates `figures/margin_vs_omega.png` and reports worst-case margin at key omega values.
 
-### 5. Zonal validation (Sec. 5.5, Table 6)
+### 5. Worst-case margin, Table 7 (Sec. 4.4)
+```bash
+python src/table7.py
+```
+Reproduces the worst-case perigee-constraint safety margin `|min_u δr_p(u)|` for the four representative LEO geometries in Table 7, via the exact cubic extremization of Sec. 4.4. This is the ω = 0 special case of the general-ω solver in `general_omega.py` (Sec. 4.5): at ω = 0, π the degree-six polynomial (Eq. 30) collapses exactly to this cubic, so Table 7's entries are the ω = 0 evaluations of the same underlying margin function used to generate Fig. 1.
+
+### 6. Zonal validation (Sec. 5.5, Table 6)
 ```bash
 python src/zonal_validation.py
 ```
 Compares J2-only vs J2-J6 zonal integration to confirm residual error is not dominated by neglected harmonics.
 
-### 6. Figures 2, 3, 5
+### 7. Figures 2, 3, 5
 ```bash
 python src/figures.py
 ```
@@ -81,7 +88,7 @@ Generates:
 - `figures/j2_rp_single_orbit.png` (Fig. 3 — short-period oscillation)
 - `figures/margin_sweep_panels.png` (Fig. 5 — 3-panel LEO parameter sweep)
 
-### 7. Worked example (Sec. 6.1, Fig. 4)
+### 8. Worked example (Sec. 6.1, Fig. 4)
 ```bash
 python src/worked_example.py
 ```
