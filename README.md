@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22035936.svg)](https://doi.org/10.5281/zenodo.22035936)
+
 # Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary
 
 This repository contains the Python source code and verification scripts accompanying the paper:
@@ -22,7 +24,10 @@ The paper derives closed-form, first-order J2 perturbation corrections to both b
 │   ├── worked_example.py          # Generate synthetic-attributable boundaries (Sec. 6.1, Fig. 4)
 │   └── figures.py                 # Generate figures (Figs. 2,3,5)
 ├── figures/                       # Output directory for PNG figures
-└── data/                          # Output directory for generated tables
+├── data/                          # Output directory for generated tables
+├── CITATION.cff                   # Citation metadata
+├── LICENSE                        # MIT
+└── requirements.txt
 ```
 
 ## Requirements
@@ -103,7 +108,7 @@ J2-corrected.
 |----------|-------|----------|
 | Energy-constraint correction | First-order accurate, O(J2^2) residual | Sec. 3, Eq. 12 |
 | Perigee-constraint validity threshold | e ≳ 10 J2 (R⊕/a)^2 | Sec. 5.6, Eq. 31 |
-| LEO safety margin (worst-case) | ~10–12 km | Sec. 6, Table 7 |
+| LEO safety margin (worst-case) | ~10–12 km | Sec. 4.4, Table 7 |
 | Margin variation with ω | Factor ~1.7 (10.96 km → 6.37 km) | Sec. 4.5, Fig. 1 |
 | Reclassified AR area (worked example) | 0.0029% | Sec. 6.1 |
 
@@ -120,6 +125,21 @@ If you use this code, please cite the paper:
   note    = {under review}
 }
 ```
+
+and the archived software release:
+
+```bibtex
+@software{nesvinga2026j2code,
+  author    = {Nesvinga, P. A.},
+  title     = {Analytic First-Order J2 Corrections to the Two-Body Admissible-Region Boundary},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.22035936},
+  url       = {https://doi.org/10.5281/zenodo.22035936}
+}
+```
+
+The DOI above is the concept DOI and always resolves to the latest release. To cite a specific version, use the version DOI listed on the Zenodo record.
 
 ## License
 
